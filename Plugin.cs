@@ -6,17 +6,21 @@ using TestPlugin.Commands;
 
 namespace TestPlugin;
 
-[BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(Plugin.GUID, Plugin.NAME, Plugin.VERSION)]
 public class Plugin : BaseUnityPlugin
 {
+    public const string GUID = "TestPlugin";
+    public const string NAME = "TestPlugin";
+    public const string VERSION = "1.0.0";
+
     private void Awake()
     {
-        BepInEx.Logging.Logger.CreateLogSource(PluginInfo.PLUGIN_NAME);
+        BepInEx.Logging.Logger.CreateLogSource(Plugin.NAME);
 
         RegisterCommands();
         PatchClient();
 
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} has finished loading!");
+        Logger.LogInfo($"Plugin {Plugin.GUID} has finished loading!");
     }
 
     private void RegisterCommands()

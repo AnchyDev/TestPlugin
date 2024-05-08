@@ -8,7 +8,7 @@ I have not seen a lot of modding for this game so all of the content in this plu
 ### Install BepInEx
 - Download `BepInEx 64-bit`
 - Extract the contents of the zip file into the root path of `Savage Lands`
-- Run `avage Lands` once to generate BepInEx configuration
+- Run `Savage Lands` once to generate BepInEx configuration
 - Exit `Savage Lands`
 
 > [!CAUTION]

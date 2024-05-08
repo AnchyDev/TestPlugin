@@ -9,7 +9,7 @@ public class AddItemCommand : ICommand
     {
         if (args.Length < 2)
         {
-            return new CommandResult(false, "Missing item id argument. Example usage: .additem 123");
+            return new CommandResult(false, "Missing item id argument. Usage: .additem 123");
         }
 
         if (!int.TryParse(args[1], out int itemId))

@@ -22,5 +22,10 @@ I have not seen a lot of modding for this game so all of the content in this plu
 
 ### Setup Plugin
 - Clone this repository.
-- Compile it using `.NET SDK 7`.
+- Install `.NET SDK 7`.
+- Open solution/project file.
+- Compile project.
 - Move `TestPlugin.dll` into the `Bepinex/plugins` path.
+
+> [!NOTE]
+> You may have to add a project reference to the `Steam/../SavageLands/SavageLands_Data/Managed/Assembly-CSharp.dll` assembly to compile.

@@ -13,7 +13,7 @@ internal class ChatNotifyItemPickedUp
             return;
         }
 
-        GameManager.ChatScreenInput.AddText($"Picked up item ", UnityEngine.Color.white, false);
+        GameManager.ChatScreenInput.AddText($"Picked up item", UnityEngine.Color.white, false);
         GameManager.ChatScreenInput.AddText(item.ItemDisplayName, GetColorFromItemRarity(item.Rarity));
     }
 

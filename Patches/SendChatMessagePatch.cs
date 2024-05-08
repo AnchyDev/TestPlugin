@@ -10,9 +10,9 @@ namespace TestPlugin.Patches;
 
 [HarmonyPatch(typeof(ChatMessage))]
 [HarmonyPatch("Send")]
-class SendChatMessagePatch
+internal class SendChatMessagePatch
 {
-    static void Postfix(ChatMessage __instance, string message)
+    private static void Postfix(ChatMessage __instance, string message)
     {
         if(string.IsNullOrEmpty(message))
         {

@@ -1,5 +1,5 @@
 ﻿using BepInEx.Logging;
-
+using GP.Utility;
 using HarmonyLib;
 
 using System.Linq;
@@ -22,13 +22,38 @@ internal class CtrlClickItemTransferPatch
                 return;
             }
 
+            // Item is in vicinity, move to character inventory.
             if(item.InVicinity)
             {
                 GameManager.PlayerInventory.AddItem(item.InventoryItem);
+                return;
             }
-            else
+
+            var bag = GameManager.InventoryScreenInput.ActiveBagItem;
+
+            // No bag found, moving to vicinity
+            if (bag is null)
             {
                 GameManager.PlayerInventory.Remove(item.InventoryItem);
+                return;
+            }
+
+            logger.LogInfo($"Found bag: {bag.BagType}, {bag.ItemDisplayName}, Size: {bag.BagItems.Length}");
+
+
+            // TODO: Fix this, when ctrl clicking items they are not moved to opened containers
+            for (int i = 0; i < bag.BagItems.Length; i++)
+            {
+                if (bag.BagItems[i] is not null &&
+                    !bag.BagItems[i].AddItem(item.InventoryItem))
+                {
+                    continue;
+                }
+
+                bag.AddItemToSlot(item.InventoryItem, i);
+                item.SafeDestroy();
+
+                break;
             }
         }
     }

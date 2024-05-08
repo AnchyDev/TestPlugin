@@ -17,14 +17,13 @@ internal class TimeCommand : ICommand
 
         if(args.Length < 2)
         {
-            return new CommandResult(false, "Missing time argument. Usage: time <day/night, 0-1>");
+            return new CommandResult(false, "Missing time argument. Usage: time <day/night | number>");
         }
 
         var value = args[1];
 
         if(float.TryParse(value, out float floatTime))
         {
-            natureComponent.SetWeatherPattern(-1);
             natureComponent.DayNight.TimeOfDay = floatTime;
         }
         else
@@ -43,8 +42,6 @@ internal class TimeCommand : ICommand
                     return new CommandResult(false, "Invalid value.");
             }
         }
-
-        natureComponent.SetWeatherPattern(-1);
 
         return new CommandResult(true);
     }

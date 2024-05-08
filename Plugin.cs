@@ -34,6 +34,7 @@ public class Plugin : BaseUnityPlugin
         handler.RegisterCommand(new FogCommand());
         handler.RegisterCommand(new HealCommand());
         handler.RegisterCommand(new TimeCommand());
+        handler.RegisterCommand(new WeatherCommand());
         handler.RegisterCommand(new HelpCommand());
 
         Logger.LogInfo($"'{handler.Commands.Count}' commands registered.");

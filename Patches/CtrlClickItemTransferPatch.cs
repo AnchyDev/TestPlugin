@@ -16,8 +16,6 @@ internal class CtrlClickItemTransferPatch
 
         if (UnityEngine.Input.GetKey(UnityEngine.KeyCode.LeftControl))
         {
-            logger.LogInfo("Control clicked item");
-
             var item = tk2ditem as InventoryItem2dInput;
             if(item is null)
             {

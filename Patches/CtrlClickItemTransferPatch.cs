@@ -45,7 +45,6 @@ internal class CtrlClickItemTransferPatch
                 return;
             }
 
-            // TODO: Fix this, when ctrl clicking items they are not moved (visually) to opened containers
             for (int i = 0; i < bag.BagItems.Length; i++)
             {
                 if(bag.AddItemToSlot(item.InventoryItem, i))
